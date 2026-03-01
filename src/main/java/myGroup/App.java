@@ -10,7 +10,7 @@ public class App {
         int result = addCalculator(8,9);
 
         System.out.println(result);
-        System.out.println("App is running.");
+        System.out.println("App is running..");
 
     }
 }
