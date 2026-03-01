@@ -22,7 +22,7 @@ pipeline {
         }
         stage('Build Docker Image') {
             steps {
-                sh 'docker build -t second-test-pipelines .'
+                sh 'docker build -t second-test-pipelines-1.0-SNAPSHOT.jar .'
             }
         }
         stage('Deploy') {
