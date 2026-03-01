@@ -2,6 +2,7 @@ pipeline {
     agent any
     tools {
             maven 'Maven'
+            jdk 'jdk-21'
         }
     stages {
         stage('Checkout') {
@@ -21,12 +22,12 @@ pipeline {
         }
         stage('Build Docker Image') {
             steps {
-                sh 'docker build -t mperazaravelo/app:${BUILD_NUMBER} .'
+                sh 'docker build -t second-test-pipelines .'
             }
         }
         stage('Deploy') {
             steps {
-                sh 'docker run -d -p 8080:8080 mperazaravelo/app:${BUILD_NUMBER}'
+                sh 'docker run -d -p 8081:8080 second-test-pipelines'
             }
         }
     }

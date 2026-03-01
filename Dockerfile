@@ -1,10 +1,9 @@
-# Use official Maven image with JDK
-FROM maven:3.8.4-openjdk-11
+FROM eclipse-temurin:21-jre-jammy
 
-# Copy source code
-COPY . /app
 WORKDIR /app
 
-# Run the application
+COPY target/*.jar app.jar
+
 EXPOSE 8080
-CMD ["java", "-jar", "target/second-test-pipelines-1.0-SNAPSHOT.jar"]
+
+ENTRYPOINT ["java", "-jar", "app.jar"]
