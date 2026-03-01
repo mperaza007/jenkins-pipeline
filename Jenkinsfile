@@ -12,22 +12,22 @@ pipeline {
         }
         stage('Build & Test') {
             steps {
-                sh 'mvn clean package'
+                bat 'mvn clean package'
             }
         }
         stage('Unit Test') {
             steps {
-                sh 'mvn test'
+                bat 'mvn test'
             }
         }
         stage('Build Docker Image') {
             steps {
-                sh 'docker build -t second-test-pipelines-1.0-SNAPSHOT.jar .'
+                bat 'docker build -t second-test-pipelines-1.0-SNAPSHOT.jar .'
             }
         }
         stage('Deploy') {
             steps {
-                sh 'docker run -d -p 8081:8080 second-test-pipelines'
+                bat 'docker run -d -p 8081:8080 second-test-pipelines'
             }
         }
     }
